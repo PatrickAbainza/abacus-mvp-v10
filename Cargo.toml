@@ -1,0 +1,20 @@
+[workspace]
+members = [
+    "crates/abacus_tensor",
+    "crates/abacus_pipeline",
+    "crates/abacus_mvp_ingest",
+    "crates/abacus_kafka_client",
+    "crates/abacus_ingest",
+    "crates/abacus_csv_client",
+]
+resolver = "2"
+
+# Shared build settings for the ported ingestion-oracle crates (abacus_ingest,
+# abacus_csv_client), which use `edition.workspace = true` /
+# `license.workspace = true`. The ingestion workspace is std-only apart from
+# `sha2` (mandated by the ABACSEG1 wire contract §4 for payload/config/header
+# integrity); every substrate-mutation path reuses the existing `abacus_tensor`
+# substrate by path dependency (Golden Source §11/§14).
+[workspace.package]
+edition = "2021"
+license = "MIT"

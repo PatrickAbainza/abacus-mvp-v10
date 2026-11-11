@@ -1,0 +1,26 @@
+/target
+
+# Build / install output
+**/target
+web/node_modules
+web/.next
+**/.DS_Store
+.DS_Store
+
+# Generated task / review artifacts (not part of the shipped pipeline)
+docs/
+artifacts/
+paxel_cline_submission/
+completed_your_tasks/
+completion_report/
+cline_paxel*
+cline_paxon*.jsonl
+/your_task_*.md
+/demo-data/*.csv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

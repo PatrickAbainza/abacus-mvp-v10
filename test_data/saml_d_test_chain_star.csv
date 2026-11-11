@@ -1,0 +1,80 @@
+Time,Date,Sender_account,Receiver_account,Amount,Payment_currency,Received_currency,Sender_bank_location,Receiver_bank_location,Payment_type,Is_laundering,Laundering_type
+10:35:19,2022-10-07,C1_1,C1_2,33774.21,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+10:35:49,2022-10-07,C1_2,C1_3,6125.48,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+10:36:19,2022-10-07,C1_3,C1_4,17376.32,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+10:36:49,2022-10-07,C1_4,C1_5,15044.48,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+10:37:19,2022-10-07,C1_5,C1_6,38141.2,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+10:40:19,2022-10-07,C2_1,C2_2,35451.48,UK pounds,Dirham,UK,UAE,Cross-border,0,Normal
+10:40:49,2022-10-07,C2_2,C2_3,45148.08,UK pounds,Dirham,UK,UAE,Cross-border,0,Normal
+10:41:19,2022-10-07,C2_3,C2_4,8912.25,UK pounds,Dirham,UK,UAE,Cross-border,0,Normal
+10:41:49,2022-10-07,C2_4,C2_5,23986.48,UK pounds,Dirham,UK,UAE,Cross-border,0,Normal
+10:42:19,2022-10-07,C2_5,C2_6,6340.87,UK pounds,Dirham,UK,UAE,Cross-border,0,Normal
+10:45:19,2022-10-07,C3_1,C3_2,14838.71,Dirham,UK pounds,UAE,UK,Cheque,0,Normal
+10:45:49,2022-10-07,C3_2,C3_3,27740.99,Dirham,UK pounds,UAE,UK,Cheque,0,Normal
+10:46:19,2022-10-07,C3_3,C3_4,6194.12,Dirham,UK pounds,UAE,UK,Cheque,0,Normal
+10:46:49,2022-10-07,C3_4,C3_5,13947.69,Dirham,UK pounds,UAE,UK,Cheque,0,Normal
+10:50:19,2022-10-07,C4_1,C4_2,34244.8,UK pounds,UK pounds,UK,UK,Cash Deposit,0,Normal
+10:50:19,2022-10-07,H1,C1_3,25000.0,UK pounds,UK pounds,UK,UK,Cross-border,0,Normal
+10:50:49,2022-10-07,C4_2,C4_3,29522.37,UK pounds,UK pounds,UK,UK,Cash Deposit,0,Normal
+10:50:49,2022-10-07,C2_3,H1,25000.0,Dirham,UK pounds,UAE,UK,Cross-border,0,Normal
+10:51:19,2022-10-07,H2,C3_2,30000.0,Dirham,UK pounds,UAE,UK,Cross-border,0,Normal
+10:51:49,2022-10-07,C3_4,H3,30000.0,UK pounds,Dirham,UK,UAE,Cross-border,0,Normal
+10:52:19,2022-10-07,H4,C4_2,15000.0,Dirham,Dirham,UAE,UAE,Cash Deposit,0,Normal
+10:52:49,2022-10-07,C4_3,H4,15000.0,Dirham,Dirham,UAE,UAE,Cash Deposit,0,Normal
+11:00:29,2022-10-07,H1,H1_L1,14919.83,UK pounds,UK pounds,UK,UK,Cheque,0,Normal
+11:00:39,2022-10-07,H1,H1_L2,31516.96,UK pounds,UK pounds,UK,UK,Cheque,0,Normal
+11:00:49,2022-10-07,H1,H1_L3,41424.37,UK pounds,UK pounds,UK,UK,Cheque,0,Normal
+11:00:59,2022-10-07,H1,H1_L4,5292.44,UK pounds,UK pounds,UK,UK,Cheque,0,Normal
+11:01:09,2022-10-07,H1,H1_L5,41261.87,UK pounds,UK pounds,UK,UK,Cheque,0,Normal
+11:01:19,2022-10-07,H1,H1_L6,36416.27,UK pounds,UK pounds,UK,UK,Cheque,0,Normal
+11:01:29,2022-10-07,H1,H1_L7,20311.27,UK pounds,UK pounds,UK,UK,Cheque,0,Normal
+11:01:39,2022-10-07,H1,H1_L8,11996.58,UK pounds,UK pounds,UK,UK,Cheque,0,Normal
+11:01:49,2022-10-07,H1,H1_L9,48074.59,UK pounds,UK pounds,UK,UK,Cheque,0,Normal
+11:01:59,2022-10-07,H1,H1_L10,20146.75,UK pounds,UK pounds,UK,UK,Cheque,0,Normal
+11:03:49,2022-10-07,H2,H2_L1,9173.56,Dirham,UK pounds,UAE,UK,Cross-border,0,Normal
+11:03:59,2022-10-07,H2,H2_L2,9352.24,Dirham,UK pounds,UAE,UK,Cross-border,0,Normal
+11:04:09,2022-10-07,H2,H2_L3,43137.25,Dirham,UK pounds,UAE,UK,Cross-border,0,Normal
+11:04:19,2022-10-07,H2,H2_L4,32167.67,Dirham,UK pounds,UAE,UK,Cross-border,0,Normal
+11:04:29,2022-10-07,H2,H2_L5,41320.77,Dirham,UK pounds,UAE,UK,Cross-border,0,Normal
+11:04:39,2022-10-07,H2,H2_L6,37837.93,Dirham,UK pounds,UAE,UK,Cross-border,0,Normal
+11:04:49,2022-10-07,H2,H2_L7,29130.26,Dirham,UK pounds,UAE,UK,Cross-border,0,Normal
+11:04:59,2022-10-07,H2,H2_L8,48790.21,Dirham,UK pounds,UAE,UK,Cross-border,0,Normal
+11:07:09,2022-10-07,H3,H3_L1,22034.05,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:07:19,2022-10-07,H3,H3_L2,29841.83,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:07:29,2022-10-07,H3,H3_L3,42323.21,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:07:39,2022-10-07,H3,H3_L4,32833.39,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:07:49,2022-10-07,H3,H3_L5,43776.81,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:07:59,2022-10-07,H3,H3_L6,30980.85,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:08:09,2022-10-07,H3,H3_L7,36705.73,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:08:19,2022-10-07,H3,H3_L8,7062.1,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:08:29,2022-10-07,H3,H3_L9,15255.42,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:08:39,2022-10-07,H3,H3_L10,18022.46,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:08:49,2022-10-07,H3,H3_L11,8590.64,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:08:59,2022-10-07,H3,H3_L12,15475.59,UK pounds,Dirham,UK,UAE,ACH,0,Normal
+11:10:29,2022-10-07,H4,H4_L1,9545.06,Dirham,Dirham,UAE,UAE,Cash Deposit,0,Normal
+11:10:39,2022-10-07,H4,H4_L2,17508.81,Dirham,Dirham,UAE,UAE,Cash Deposit,0,Normal
+11:10:49,2022-10-07,H4,H4_L3,33605.8,Dirham,Dirham,UAE,UAE,Cash Deposit,0,Normal
+11:10:59,2022-10-07,H4,H4_L4,21417.45,Dirham,Dirham,UAE,UAE,Cash Deposit,0,Normal
+11:11:09,2022-10-07,H4,H4_L5,21658.14,Dirham,Dirham,UAE,UAE,Cash Deposit,0,Normal
+11:15:19,2022-10-07,C5_1,C5_2,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:15:29,2022-10-07,C5_2,C5_1,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:16:59,2022-10-07,C6_1,C6_2,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:17:09,2022-10-07,C6_2,C6_3,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:17:19,2022-10-07,C6_3,C6_1,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:18:39,2022-10-07,FI_S1,H1,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:18:49,2022-10-07,FI_S2,H1,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:18:59,2022-10-07,FI_S3,H1,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:19:09,2022-10-07,FI_S4,H1,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:19:19,2022-10-07,FI_S5,H1,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:20:19,2022-10-07,H1,FO_R1,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:20:29,2022-10-07,H1,FO_R2,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:20:39,2022-10-07,H1,FO_R3,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:20:49,2022-10-07,H1,FO_R4,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:20:59,2022-10-07,H1,FO_R5,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:21:59,2022-10-07,LC_1,LC_2,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:22:09,2022-10-07,LC_2,LC_3,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:22:19,2022-10-07,LC_3,LC_4,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:22:29,2022-10-07,LC_4,LC_5,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:22:39,2022-10-07,LC_5,LC_6,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:22:49,2022-10-07,LC_6,LC_7,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal
+11:22:59,2022-10-07,LC_7,LC_8,5000.0,UK pounds,UK pounds,UK,UK,ACH,0,Normal

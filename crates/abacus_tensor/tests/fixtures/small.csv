@@ -1,0 +1,7 @@
+Time,Date,Sender_account,Receiver_account,Amount,Payment_currency,Received_currency,Sender_bank_location,Receiver_bank_location,Payment_type,Is_laundering,Laundering_type
+10:00:00,2024-01-01,Alice,Bob,100.00,USD,USD,US,US,Transfer,0,Normal
+10:00:00,2024-01-01,Alice,Bob,50.00,USD,USD,US,US,Transfer,1,Fan Out
+11:30:00,2024-01-01,Carol,Dave,25.50,USD,USD,UK,UK,Cash,0,Normal
+09:00:00,2024-01-02,Bob,Alice,7.25,USD,USD,US,US,Transfer,0,Normal
+09:00:00,2024-01-02,Bob,Alice,-7.25,USD,USD,US,US,Transfer,0,Normal
+23:59:59,2024-01-03,Carol,Bob,1000000.1234567,USD,USD,UK,US,Wire,1,Scatter Gather

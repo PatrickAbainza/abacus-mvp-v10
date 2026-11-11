@@ -1,0 +1,81 @@
+[package]
+name = "abacus_tensor"
+version = "0.1.0"
+edition = "2021"
+description = "Sparse transaction tensor system — smallest realization derived from the atomic primitive derivation (no third-party libraries)."
+license = "MIT"
+
+[lib]
+name = "abacus_tensor"
+path = "src/lib.rs"
+
+[[bin]]
+name = "build_samld"
+path = "src/bin/build_samld.rs"
+
+[[bin]]
+name = "verify_artifact"
+path = "src/bin/verify_artifact.rs"
+
+[[bin]]
+name = "build_sidecar"
+path = "src/bin/build_sidecar.rs"
+
+[[bin]]
+name = "ingestion_benchmark"
+path = "src/bin/ingestion_benchmark.rs"
+
+[[bin]]
+name = "build_samld_full"
+path = "src/bin/build_samld_full.rs"
+
+[[bin]]
+name = "build_samld_bin"
+path = "src/bin/build_samld_bin.rs"
+
+[[bin]]
+name = "samld_bin_bench"
+path = "src/bin/samld_bin_bench.rs"
+
+[[bin]]
+name = "pack_sidecar"
+path = "src/bin/pack_sidecar.rs"
+
+[[bin]]
+name = "pack_csf"
+path = "src/bin/pack_csf.rs"
+
+[[bin]]
+name = "pack_core"
+path = "src/bin/pack_core.rs"
+
+[[bin]]
+name = "pack_eval_v3"
+path = "src/bin/pack_eval_v3.rs"
+
+[[bin]]
+name = "rules_probe"
+path = "src/bin/rules_probe.rs"
+
+[[bin]]
+name = "rule_discovery"
+path = "src/bin/rule_discovery.rs"
+
+[[bin]]
+name = "rule_discovery_fanio"
+path = "src/bin/rule_discovery_fanio.rs"
+
+[[bin]]
+name = "overfit_global"
+path = "src/bin/overfit_global.rs"
+
+[[bin]]
+name = "overfit_focal"
+path = "src/bin/overfit_focal.rs"
+
+[[bin]]
+name = "overfit_complexity"
+path = "src/bin/overfit_complexity.rs"
+
+
+[dependencies]

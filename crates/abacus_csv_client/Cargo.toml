@@ -1,0 +1,23 @@
+[package]
+name = "abacus_csv_client"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+description = "Browser-side CSV normalization client for the Abacus ingestion pipeline: column mapping, explicit timestamp/currency/locale policy, exact amount parsing, frozen feature derivation and bounded ABACSEG1 chunk upload through the existing /api/v1 service."
+
+[lib]
+name = "abacus_csv_client"
+path = "src/lib.rs"
+
+[[bin]]
+name = "csv_ingest"
+path = "src/bin/csv_ingest.rs"
+
+[dependencies]
+# The existing pipeline is reused, never reimplemented: the frozen feature
+# derivation (`features`), the 23+2W canonical record, the 176-byte ABACSEG1
+# envelope (`wire`/`encode_segment`), the identity model (`namespace`), the
+# structured error taxonomy (`error`) and the attested-amount clearing guards
+# (`secret`) all come from here. No new external dependency is introduced, so
+# this crate builds offline alongside the rest of the workspace.
+abacus_ingest = { path = "../abacus_ingest" }

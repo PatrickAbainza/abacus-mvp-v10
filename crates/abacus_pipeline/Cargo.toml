@@ -1,0 +1,38 @@
+[package]
+name = "abacus_pipeline"
+version = "0.1.0"
+edition = "2021"
+description = "Abacus Phase-1 incremental sparse-tensor pipeline over the canonical CSF (v10)."
+license = "MIT"
+
+[lib]
+name = "abacus_pipeline"
+path = "src/lib.rs"
+
+# Distinct output name to avoid colliding with the abacus_mvp_ingest
+# `ingest_server` bin (both would emit target/debug/ingest_server).
+[[bin]]
+name = "ingest_pipeline_server"
+path = "src/bin/ingest_server.rs"
+
+[dependencies]
+abacus_tensor = { path = "../abacus_tensor" }
+# The ported ingestion oracle: the shared append-only AccountMap (wire u64 ->
+# u32, one namespace, §6), the compound (namespace, event_id) identity, and the
+# frozen 7-byte amount-derived FeaturePayload (privacy-preserving derived
+# metrics, GS §9). The pipeline carries THIS ingestion model, not its former
+# role-separated string dictionaries / SAMCORE02 model.
+abacus_ingest = { path = "../abacus_ingest" }
+# The CSV integration surface: normalizes + session-validates a raw CSV upload
+# (same canonical path the :8090 upload server runs) and returns the validated
+# records + A1 attested amounts for `IngestPipeline::apply_prepared`, so the
+# view server owns ONE write+read path with no second divergent substrate.
+abacus_mvp_ingest = { path = "../abacus_mvp_ingest" }
+abacus_csv_client = { path = "../abacus_csv_client" }
+# chrono provides correct, tested ISO 8601 parsing and timezone-aware
+# date-time conversion for the semantic timestamp translation layer.
+chrono = "0.4"
+
+[dev-dependencies]
+abacus_tensor = { path = "../abacus_tensor" }
+abacus_ingest = { path = "../abacus_ingest" }

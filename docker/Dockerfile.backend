@@ -1,0 +1,28 @@
+# Abacus ingestion backend — Rust binary.
+# Multi-stage: build the workspace, then ship only the release binary.
+FROM rust:1.97-slim AS build
+WORKDIR /src
+
+# Copy the workspace crates and lockfile for a reproducible build.
+COPY Cargo.toml Cargo.lock ./
+COPY crates ./crates
+
+# Build the ingestion view server: owns the single CSV-upload → dashboard
+# write+read path (`POST /api/ingest/csv` + `/api/ingest/*` reads).
+# NOTE — no persistence: state is in-memory; a restart wipes every upload
+# (deferred to a future refactor).
+RUN cargo build --release --bin ingest_pipeline_server -p abacus_pipeline
+
+# ---- runtime ----
+FROM debian:bookworm-slim AS runtime
+WORKDIR /app
+
+COPY --from=build /src/target/release/ingest_pipeline_server /app/ingest_pipeline_server
+
+RUN useradd --system --uid 10001 --no-create-home --shell /usr/sbin/nologin app
+USER app
+
+ENV ABACUS_ADDR=0.0.0.0:8091
+EXPOSE 8091
+
+CMD ["/app/ingest_pipeline_server"]

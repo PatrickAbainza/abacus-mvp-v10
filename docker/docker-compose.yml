@@ -1,0 +1,43 @@
+# Abacus ingestion UI — Docker Compose.
+#
+# Two services:
+#   backend  — the Rust ingestion view server (`ingest_pipeline_server`):
+#              owns the single CSV-upload → dashboard write+read path
+#              (`POST /api/ingest/csv` + `/api/ingest/*` reads). In-memory only —
+#              a restart wipes every upload (persistence is a future refactor).
+#   frontend — the Next.js UI, which proxies same-origin /api/* to the backend.
+#
+# `/api/v1/*` still routes to the oracle upload server (:8090, run separately);
+# the browser CSV upload now targets the view server so the dashboard shows it.
+#
+# Usage:
+#   docker compose -f docker/docker-compose.yml up --build
+#   open http://localhost:3000
+
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    environment:
+      ABACUS_ADDR: 0.0.0.0:8091
+    expose:
+      - "8091"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.frontend
+    environment:
+      INGEST_ORIGIN: http://backend:8091
+      # `/api/v1/*` (oracle session/chunk/commit API) still belongs to the
+      # separate upload server (`abacus_mvp_ingest`, :8090). Set UPLOAD_ORIGIN
+      # to reach it; otherwise those paths fall back to BACKEND_ORIGIN.
+      # UPLOAD_ORIGIN: http://upload:8090
+      PORT: 3000
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped

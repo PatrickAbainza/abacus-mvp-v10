@@ -1,0 +1,30 @@
+[package]
+name = "abacus_ingest"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+description = "Abacus ingestion pipeline: ABACSEG1 segment validation, canonical event identity, feature validation and substrate application over the existing abacus_tensor substrate."
+
+[lib]
+name = "abacus_ingest"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ingest_oracle_server"
+path = "src/bin/ingest_server.rs"
+
+[dependencies]
+# Existing authoritative substrate. Reused, never reimplemented: CSF, tensor
+# algebra, the ledger CAS and the incremental ingest/frontier path all live
+# there (Golden Source v2.0 §11/§14: "Reuse the existing incremental update
+# path. Do not build a second CSF or index implementation inside an adapter.").
+abacus_tensor = { path = "../abacus_tensor" }
+# SHA-256 is required verbatim by the wire contract (§4). The substrate is
+# std-only and has no SHA-256, so this is the single added dependency.
+sha2 = "0.11"
+# Cline JSONL parsing and paxel-compatible JSONL output
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[dev-dependencies]
+abacus_tensor = { path = "../abacus_tensor" }

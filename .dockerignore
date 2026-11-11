@@ -1,0 +1,24 @@
+# Docker build contexts stay lean: never copy build output, VCS, or the
+# dataset into images. The SAMLD artifact is bind-mounted read-only at runtime
+# (docker-compose), not baked into an image.
+target/
+**/target/
+web/node_modules/
+web/.next/
+.git/
+.DS_Store
+docs/
+completion_report/
+completed_your_tasks/
+*.md
+artifacts/
+test_data/
+demo-data/
+*.jsonl
+cline_paxel*
+paxel_cline_submission/
+**/*.bin
+**/*.csf
+**/*.sidecar
+Dockerfile*
+docker-compose*.yml

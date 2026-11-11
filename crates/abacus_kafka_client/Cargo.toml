@@ -1,0 +1,30 @@
+[package]
+name = "abacus_kafka_client"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Kafka source adapter for the Abacus ingestion pipeline: SourceType::Kafka / KafkaPartitionOffset configuration, persistent per-partition event-namespace registration, a bounded transport seam and partition-offset idempotency — all reusing the abacus_ingest oracle. The message→record mapping is a documented, unresolved specification gap."
+
+[lib]
+name = "abacus_kafka_client"
+path = "src/lib.rs"
+
+[dependencies]
+# The authoritative ingestion oracle, reused (never reimplemented): the frozen
+# 7-byte feature derivation, the 23+2W canonical record, the 176-byte ABACSEG1
+# envelope, the compound (namespace, event_id) identity model, the validated
+# SourceConfig and the SubstrateApplier commit path all live here.
+abacus_ingest = { path = "../abacus_ingest" }
+
+# Deliberately NO Kafka broker client dependency. Gap B of the discovery report
+# is a dependency decision outside any governing specification, so this adapter
+# isolates the broker behind the bounded `transport::MessageSource` seam (the
+# same approach `abacus_csv_client` takes with its `Transport` seam) rather than
+# silently adding a heavy crate. See `KAFKA_SCHEMA_GAP.md`.
+
+[dev-dependencies]
+# The substrate this workspace owns, used by the tests to assert the exact
+# micro-unit scale a committed event carries. Reached through abacus_ingest at
+# runtime, but named directly so the test reads the substrate's own constant.
+abacus_tensor = { path = "../abacus_tensor" }
+

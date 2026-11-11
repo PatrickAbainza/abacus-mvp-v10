@@ -1,0 +1,44 @@
+# Abacus ingestion pipeline — Docker Compose (full stack).
+#
+# Two services:
+#   backend  — Rust `ingest_pipeline_server` (:8091).
+#              Serves the CSV-upload → dashboard write+read path
+#              (`POST /api/ingest/csv` + `/api/ingest/*` reads). In-memory only
+#              — a restart wipes every upload (persistence is a future refactor).
+#   frontend — Next.js UI (:3000) which proxies same-origin /api/* to the backend.
+#
+# One-command local run (general computers — only Docker required):
+#   docker compose up --build
+#   open http://localhost:3000
+#
+# Backend is also reachable directly at http://localhost:8091 for curl/health checks.
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    environment:
+      ABACUS_ADDR: 0.0.0.0:8091
+    ports:
+      - "127.0.0.1:8091:8091"
+    expose:
+      - "8091"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    environment:
+      INGEST_ORIGIN: http://backend:8091
+      # `/api/v1/*` (oracle session/chunk/commit API) still belongs to the
+      # separate upload server (:8090, run separately). Set UPLOAD_ORIGIN to
+      # reach it; otherwise those paths fall back to BACKEND_ORIGIN.
+      # UPLOAD_ORIGIN: http://upload:8090
+      PORT: 3000
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped

@@ -1,0 +1,34 @@
+[package]
+name = "abacus_mvp_ingest"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Integration surface for CSV ingestion into the abacus_mvp_v10 tensor substrate, reusing the abacus_ingestion oracle pipeline (ABACSEG1 canonical data model) without reimplementing it."
+
+[lib]
+name = "abacus_mvp_ingest"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ingest_csv"
+path = "src/bin/ingest_csv.rs"
+
+[dependencies]
+# The authoritative ingestion oracle, reused (never reimplemented): the frozen
+# 7-byte feature derivation, the 23+2W canonical record, the 176-byte ABACSEG1
+# envelope, the compound (namespace, event_id) identity model, the attested-
+# amount commit path and the IngestionService/session API all live there
+# (Golden Source v2.0; Canonical Contract v1.0). abacus_ingest in turn depends
+# on the abacus_tensor substrate by path, so committing through this service
+# mutates THIS repository's tensor.
+abacus_ingest = { path = "../abacus_ingest" }
+# The completed CSV adapter (browser normalization core + headless driver).
+# Reused as-is; no parallel CSV implementation is introduced here.
+abacus_csv_client = { path = "../abacus_csv_client" }
+# The substrate this repository owns, asserted directly by the acceptance test.
+abacus_tensor = { path = "../abacus_tensor" }
+
+[dev-dependencies]
+# Property suite (tests/ingestion_properties.rs) exercises the Kafka adapter
+# surface alongside the CSV surface; same workspace, no new external crate.
+abacus_kafka_client = { path = "../abacus_kafka_client" }
