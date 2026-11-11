@@ -16,7 +16,7 @@ completion_report/
 cline_paxel*
 cline_paxon*.jsonl
 /your_task_*.md
-/demo-data/*.csv
+/demo_data/SAML-D-90days_1st.csv
 
 # IDE
 .idea/

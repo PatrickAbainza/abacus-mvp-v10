@@ -12,8 +12,7 @@ completion_report/
 completed_your_tasks/
 *.md
 artifacts/
-test_data/
-demo-data/
+demo_data/
 *.jsonl
 cline_paxel*
 paxel_cline_submission/

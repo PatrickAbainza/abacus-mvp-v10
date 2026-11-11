@@ -32,10 +32,10 @@ Stop the demo with `Ctrl-C`, or run `docker compose down` from another terminal.
 
 ## Optional demo dataset
 
-The repository includes a gzip-compressed 90-day CSV sample at `demo-data/SAML-D-90days_1st.csv.gz` (about 52 MiB). Docker Compose does not load it automatically. To unpack it locally while keeping the archive:
+The repository includes a small synthetic CSV fixture at `demo_data/saml_d_test_chain_star.csv` and a gzip-compressed 90-day CSV sample at `demo_data/SAML-D-90days_1st.csv.gz` (about 52 MiB). Docker Compose does not load either file automatically. To unpack the 90-day sample locally while keeping the archive:
 
 ```bash
-gzip -dk demo-data/SAML-D-90days_1st.csv.gz
+gzip -dk demo_data/SAML-D-90days_1st.csv.gz
 ```
 
 Upload the resulting CSV from the dashboard. The uncompressed file is about 262 MiB, so allow enough memory for the browser and backend while importing it.

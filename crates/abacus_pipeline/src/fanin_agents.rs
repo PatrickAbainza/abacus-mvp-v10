@@ -930,7 +930,7 @@ fn test_end_to_end_saml_d_fan_in_count() {
 
     // Parse the CSV dataset end-to-end and ingest every row.
     let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../test_data/saml_d_test_chain_star.csv");
+        .join("../../demo_data/saml_d_test_chain_star.csv");
     let file = File::open(&path).expect("could not open test CSV");
     let reader = BufReader::new(file);
     let mut lines = reader.lines();
